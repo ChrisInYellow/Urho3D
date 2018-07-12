@@ -154,7 +154,7 @@ macro (check_native_compiler_exist)
     if (NOT HAVE_NATIVE_COMPILER)
         message (STATUS "Performing Test HAVE_NATIVE_COMPILER")
         file (WRITE ${CMAKE_BINARY_DIR}/generated/CMakeLists.txt "message (\"Probing native compiler toolchain...\")\n")
-        execute_process (COMMAND ${CMAKE_COMMAND} -G${CMAKE_GENERATOR} .
+        execute_process (COMMAND ${CMAKE_COMMAND} .
             WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/generated RESULT_VARIABLE EXIT_CODE ERROR_VARIABLE ERR_VAR OUTPUT_QUIET)
         if (NOT EXIT_CODE EQUAL 0)
             message (STATUS "Performing Test HAVE_NATIVE_COMPILER - Failed")
