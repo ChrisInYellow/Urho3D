@@ -24,6 +24,7 @@ addons:
     - doxygen
     - graphviz
     - g++-multilib
+    - ninja-build
 env:
   global:
   - secure: SLJCjkjDsTMbCIV9Wecz5JATnhk0fuzlnLMeZdvvFDv+8NL8cXyutkU0VfyRSLf3HSD1Js79a6fRMROyVGWj/w/BRrjqGnZzsB6+ZeJNnadiVIF5Gh+w90We5ccvSp2G4DyYgwkNnkKlJK7zNEWGu/K+bHL1EOCA+EIVrFMyA44=
@@ -39,6 +40,7 @@ env:
   - ORG_GRADLE_PROJECT_abi=arm64-v8a
 stage: shared build configuration
 install:
+- echo y | sdkmanager "ndk-bundle"
 - echo y | sdkmanager "cmake;3.6.4111459"
 before_script:
 - export NO_SDK_SYSIMG=1; unset AVD INSTALL
